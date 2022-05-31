@@ -1,0 +1,16 @@
+app: API
+stage: ${env:STAGE}
+
+component: http
+name: API
+inputs:
+  src:
+    src: ./
+  region: ap-beijing
+  runtime: Nodejs10.15
+  functionName: ${name}-${stage}-${app}
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release
